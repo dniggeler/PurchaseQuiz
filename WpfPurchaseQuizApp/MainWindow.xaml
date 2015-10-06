@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfPurchaseQuizApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Purchase Quiz" Height="350" Width="525">
     <Grid>
-        
+        <DockPanel Background="Transparent">
+            <TextBlock DockPanel.Dock="Top">Something</TextBlock>
+            <TextBlock DockPanel.Dock="Top">Something else</TextBlock>
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto">
+
+                <StackPanel DockPanel.Dock="Bottom" Width="auto" Height="60" HorizontalAlignment="Stretch" Background="LightGray">
+                    <TextBlock Text="Status"></TextBlock>
+                </StackPanel>
+                
+                <GroupBox DockPanel.Dock="Right" Header="Result" Width="100" Background="Beige" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Height="Auto" Margin="10">
+                    <TextBlock Text="This is the help that is available on the news screen." TextWrapping="Wrap" />
+                </GroupBox>
+
+               <StackPanel Width="Auto" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                    <Slider Orientation="Vertical" Margin="5" Name="purchaseSlider1" Maximum="{Binding Source={x:Static local:MainWindow.MaxPurchase}}" Minimum="0" />
+                    <Slider Orientation="Vertical" Margin="5"/>
+                    <Slider Orientation="Vertical" Margin="5"/>
+                    <Slider Orientation="Vertical" Margin="5"/>
+                    <Slider Orientation="Vertical" Margin="5"/>
+                    <Label Content="{Binding ElementName=purchaseSlider1, Path=Value}"/>
+                </StackPanel>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </Window>

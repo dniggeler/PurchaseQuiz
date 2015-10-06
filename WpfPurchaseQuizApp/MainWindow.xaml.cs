@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfPurchaseQuizApp.Models;
 
 namespace WpfPurchaseQuizApp
 {
@@ -20,9 +21,18 @@ namespace WpfPurchaseQuizApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public const double MaxPurchase = 50000;
+
+        protected QuizConfig config { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            config = new QuizConfig();
+
+            this.purchaseSlider1.DataContext = config;
+            this.purchaseSlider1.Maximum = config.PurchaseTotal;
         }
     }
 }
