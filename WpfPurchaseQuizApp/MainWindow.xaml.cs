@@ -23,16 +23,25 @@ namespace WpfPurchaseQuizApp
     {
         public const double MaxPurchase = 50000;
 
-        protected QuizConfig config { get; set; }
+        protected QuizData Data { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            config = new QuizConfig();
+            Data = new QuizData();
 
-            this.purchaseSlider1.DataContext = config;
-            this.purchaseSlider1.Maximum = config.PurchaseTotal;
+            this.purchaseSlider1.DataContext = Data;
+            this.purchaseSlider2.DataContext = Data;
+            this.purchaseSlider3.DataContext = Data;
+            this.purchaseSlider4.DataContext = Data;
+            this.purchaseSlider5.DataContext = Data;
+            this.TbPurchaseTotal.DataContext = Data;
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Data.PurchaseTotal.ToString());
         }
     }
 }
