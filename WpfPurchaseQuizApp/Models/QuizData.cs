@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace WpfPurchaseQuizApp.Models
 {
     public class QuizData : INotifyPropertyChanged
     {
+        private int _availablePurchase = 0;
         private int _year1Purchase = 0;
         private int _year2Purchase = 0;
         private int _year3Purchase = 0;
         private int _year4Purchase = 0;
         private int _year5Purchase = 0;
 
-        public double PurchaseMax { get; set; }
+        public double PurchaseMax => 100000.0;
 
         public double PurchaseTotal
         {
@@ -23,7 +19,14 @@ namespace WpfPurchaseQuizApp.Models
             {
                 return (Year1Purchase + Year2Purchase + Year3Purchase + Year4Purchase + Year5Purchase);
             }
-       }
+        }
+        public double AvailablePurchase
+        {
+            get
+            {
+                return PurchaseMax - PurchaseTotal;
+            }
+        }
 
         public int Year1Purchase
         {
@@ -33,6 +36,7 @@ namespace WpfPurchaseQuizApp.Models
             {
                 _year1Purchase = value;
                 this.OnPropertyChanged("PurchaseTotal");
+                this.OnPropertyChanged("AvailablePurchase");
             }
         }
 
@@ -44,6 +48,7 @@ namespace WpfPurchaseQuizApp.Models
             {
                 _year2Purchase = value;
                 this.OnPropertyChanged("PurchaseTotal");
+                this.OnPropertyChanged("AvailablePurchase");
             }
         }
 
@@ -55,6 +60,7 @@ namespace WpfPurchaseQuizApp.Models
             {
                 _year3Purchase = value;
                 this.OnPropertyChanged("PurchaseTotal");
+                this.OnPropertyChanged("AvailablePurchase");
             }
         }
 
@@ -66,6 +72,7 @@ namespace WpfPurchaseQuizApp.Models
             {
                 _year4Purchase = value;
                 this.OnPropertyChanged("PurchaseTotal");
+                this.OnPropertyChanged("AvailablePurchase");
             }
         }
 
@@ -77,12 +84,13 @@ namespace WpfPurchaseQuizApp.Models
             {
                 _year5Purchase = value;
                 this.OnPropertyChanged("PurchaseTotal");
+                this.OnPropertyChanged("AvailablePurchase");
             }
         }
 
         public QuizData()
         {
-            PurchaseMax = 50000;
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
