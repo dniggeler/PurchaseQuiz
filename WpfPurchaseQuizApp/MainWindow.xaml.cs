@@ -34,8 +34,8 @@ namespace WpfPurchaseQuizApp
             this.PurchaseSlider3.DataContext = Data;
             this.PurchaseSlider4.DataContext = Data;
             this.PurchaseSlider5.DataContext = Data;
-            this.TbAvailablePurchase.DataContext = Data;
             this.TbStatus.DataContext = Data;
+
         }
     }
 }

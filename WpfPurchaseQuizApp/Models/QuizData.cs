@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace WpfPurchaseQuizApp.Models
 {
@@ -10,6 +11,8 @@ namespace WpfPurchaseQuizApp.Models
         private int _year3Purchase = 0;
         private int _year4Purchase = 0;
         private int _year5Purchase = 0;
+
+        private FinalAmountCommand _finalAmountCommand;
 
         public int PurchaseMax => 100000;
 
@@ -109,14 +112,22 @@ namespace WpfPurchaseQuizApp.Models
 
         public QuizData()
         {
-
+            _finalAmountCommand = new FinalAmountCommand();
         }
 
+        public ICommand SimulateCommand
+        {
+            get
+            {
+                return _finalAmountCommand;
+            }
+        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }    
     }
 }

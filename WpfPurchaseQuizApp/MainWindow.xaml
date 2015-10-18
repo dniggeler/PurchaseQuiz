@@ -6,69 +6,58 @@
         xmlns:local="clr-namespace:WpfPurchaseQuizApp"
         xmlns:models="clr-namespace:WpfPurchaseQuizApp.Models"
         mc:Ignorable="d"
-        Title="Purchase Quiz" Height="350" Width="525">
+        Title="Purchase Quiz" Height="400" Width="525">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <DockPanel Background="Transparent">
             <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto">
 
+                <!-- status -->
                 <StackPanel DockPanel.Dock="Bottom" Width="auto" Height="60" HorizontalAlignment="Stretch" Background="LightGray">
                     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <TextBlock DockPanel.Dock="Top" Text="" Name="TbStatus"/>
                     </DockPanel>
                 </StackPanel>
-                
-                <DockPanel DockPanel.Dock="Right" Width="150" Background="Beige"  Height="Auto" Margin="5">
-                    <StackPanel>
-                        <GroupBox Header="Verfügbarer Betrag">
-                            <TextBlock Text="{Binding AvailablePurchase}" HorizontalAlignment="Stretch" TextAlignment="Right" Name="TbAvailablePurchase" />
-                        </GroupBox>
-                        <GroupBox Header="Zins p.a.">
-                            <DockPanel HorizontalAlignment="Stretch">
-                                <TextBox DockPanel.Dock="Right" Text="{Binding ElementName=SlZins, Path=Value, StringFormat={}{0:P2}, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"  HorizontalAlignment="Right" />
-                                <Slider Minimum="0" Maximum="0.05" TickFrequency="0.0025" IsSnapToTickEnabled="True" Name="SlZins"></Slider>
-                            </DockPanel>
-                        </GroupBox>
-                        <GroupBox Header="Jahre bis Pensionierung" HorizontalAlignment="Stretch">
-                            <DockPanel HorizontalAlignment="Stretch">
-                                <TextBox DockPanel.Dock="Right" Text="{Binding ElementName=SlYearsToRetirement, Path=Value, StringFormat={}{0:N0}, UpdateSourceTrigger=PropertyChanged}" Width="35" TextAlignment="Right"  HorizontalAlignment="Right" />
-                                <Slider Minimum="5" Maximum="30" TickFrequency="1" Name="SlYearsToRetirement"></Slider>
-                            </DockPanel>
-                        </GroupBox>
-                        <GroupBox Header="Jahreslohn">
-                            <TextBlock Text="100000" HorizontalAlignment="Right" />
-                        </GroupBox>
-                        <GroupBox Header="Wohnort">
-                            <TextBox Text="Zürich" HorizontalAlignment="Stretch" />
-                        </GroupBox>
-                    </StackPanel>
+
+                <!--Results-->
+                <DockPanel Width="150" Background="LightPink">
+                    <models:SimulationResultView DockPanel.Dock="Right"/>
                 </DockPanel>
 
-               <StackPanel Width="Auto" HorizontalAlignment="Stretch" Orientation="Horizontal">
-                    <DockPanel Width="50">
+                <!--Configuration input for simulation-->
+                <DockPanel DockPanel.Dock="Right" Width="150" Background="Beige"  Height="Auto" Margin="5">
+                    <models:SimulationInputView DockPanel.Dock="Right"/>
+                </DockPanel>
+
+                <!--Sliders-->
+                <StackPanel Width="Auto" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                    <DockPanel Width="40">
                         <Label DockPanel.Dock="Bottom">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider1, Path=Value, StringFormat={}{0:N0}}"></TextBlock>
                         </Label>
                         <Slider Value="{Binding Path=Year1Purchase}" Orientation="Vertical" Margin="5" Name="PurchaseSlider1" Maximum="{Binding PurchaseMax}" Minimum="0" VerticalAlignment="Stretch" SmallChange="1" />
                     </DockPanel>
-                    <DockPanel Width="50">
+                    <DockPanel Width="40">
                         <Label DockPanel.Dock="Bottom">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider2, Path=Value, StringFormat={}{0:N0}}"></TextBlock>
                         </Label>
                         <Slider Value="{Binding Path=Year2Purchase}" Orientation="Vertical" Margin="5" Name="PurchaseSlider2" Maximum="{Binding PurchaseMax}" Minimum="0" VerticalAlignment="Stretch" SmallChange="1"/>
                     </DockPanel>
-                    <DockPanel Width="50">
+                    <DockPanel Width="40">
                         <Label DockPanel.Dock="Bottom">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider3, Path=Value, StringFormat={}{0:N0}}"></TextBlock>
                         </Label>
                         <Slider Value="{Binding Path=Year3Purchase}" Orientation="Vertical" Margin="5" Name="PurchaseSlider3" Maximum="{Binding PurchaseMax}" Minimum="0" VerticalAlignment="Stretch" />
                     </DockPanel>
-                    <DockPanel Width="50">
+                    <DockPanel Width="40">
                         <Label DockPanel.Dock="Bottom">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider4, Path=Value, StringFormat={}{0:N0}}"></TextBlock>
                         </Label>
                         <Slider Value="{Binding Path=Year4Purchase}" Orientation="Vertical" Margin="5" Name="PurchaseSlider4" Maximum="{Binding PurchaseMax}" Minimum="0" VerticalAlignment="Stretch" />
                     </DockPanel>
-                    <DockPanel Width="50">
+                    <DockPanel Width="40">
                         <Label DockPanel.Dock="Bottom">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider5, Path=Value, StringFormat={}{0:N0}}"></TextBlock>
                         </Label>

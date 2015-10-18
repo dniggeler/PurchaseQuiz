@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WpfPurchaseQuizApp.Models.SimulationResultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfPurchaseQuizApp.Models"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <local:SimulationResultViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <GroupBox Header="Resultate">
+            <StackPanel>
+                <GroupBox Header="Endalterskapital">
+                    <StackPanel>
+                        <GroupBox Header="Vor Steuern">
+                            <TextBlock Text="{Binding FinalRetirementAmount}" HorizontalAlignment="Stretch" TextAlignment="Right" Name="TbFinalRetirementAmount" />
+                        </GroupBox>
+                        <GroupBox Header="Nach Steuern">
+                            <TextBlock Text="{Binding FinalRetirementAmountExTax}" HorizontalAlignment="Stretch" TextAlignment="Right" Name="TbFinalRetirementAmountExTax" />
+                        </GroupBox>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

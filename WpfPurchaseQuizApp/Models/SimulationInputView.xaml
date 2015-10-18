@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="WpfPurchaseQuizApp.Models.SimulationInputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfPurchaseQuizApp.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <GroupBox Header="Eingabe">
+            <StackPanel>
+                <GroupBox Header="Verfügbarer Betrag">
+                    <TextBlock Text="{Binding AvailablePurchase}" HorizontalAlignment="Stretch" TextAlignment="Right" Name="TbAvailablePurchase" />
+                </GroupBox>
+                <GroupBox Header="Zins p.a.">
+                    <DockPanel HorizontalAlignment="Stretch">
+                        <TextBox DockPanel.Dock="Right" Text="{Binding ElementName=SlZins, Path=Value, StringFormat={}{0:P2}}" Width="40" TextAlignment="Right"  HorizontalAlignment="Right" />
+                        <Slider Minimum="0" Maximum="0.05" TickFrequency="0.0025" IsSnapToTickEnabled="True" Name="SlZins"></Slider>
+                    </DockPanel>
+                </GroupBox>
+                <GroupBox Header="Jahre bis Pensionierung" HorizontalAlignment="Stretch">
+                    <DockPanel HorizontalAlignment="Stretch">
+                        <TextBox DockPanel.Dock="Right" Text="{Binding ElementName=SlYearsToRetirement, Path=Value, StringFormat={}{0:N0}}" Width="35" TextAlignment="Right"  HorizontalAlignment="Right" />
+                        <Slider Minimum="5" Maximum="30" TickFrequency="1" Name="SlYearsToRetirement"></Slider>
+                    </DockPanel>
+                </GroupBox>
+                <GroupBox Header="Jahreslohn">
+                    <TextBlock Text="100000" HorizontalAlignment="Right" />
+                </GroupBox>
+                <GroupBox Header="Wohnort">
+                    <TextBox Text="Zürich" HorizontalAlignment="Stretch" />
+                </GroupBox>
+                <Button x:Name="BtSimulate" Content="Rechne" Height="25" Width="74" HorizontalAlignment="Right" Command="{Binding Path=SimulateCommand}" />
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>
