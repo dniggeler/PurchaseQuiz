@@ -21,21 +21,9 @@ namespace WpfPurchaseQuizApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public QuizData Data { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
-
-            Data = new QuizData();
-
-            this.PurchaseSlider1.DataContext = Data;
-            this.PurchaseSlider2.DataContext = Data;
-            this.PurchaseSlider3.DataContext = Data;
-            this.PurchaseSlider4.DataContext = Data;
-            this.PurchaseSlider5.DataContext = Data;
-            this.TbStatus.DataContext = Data;
-
         }
     }
 }
