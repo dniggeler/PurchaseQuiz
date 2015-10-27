@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Input;
 
 namespace WpfPurchaseQuizApp.Models
 {
@@ -10,11 +11,25 @@ namespace WpfPurchaseQuizApp.Models
         private string _cityOfTax;
         private int _availablePurchase;
 
+        private FinalAmountCommand _finalAmountCommand;
+
         public SimulationInputViewModel()
         {
             _cityOfTax = "Zürich";
             _grossSalary = 100000;
+            _nbrYearsToSimulate = 5;
+
+            _finalAmountCommand = new FinalAmountCommand();
         }
+
+        public ICommand SimulateCommand
+        {
+            get
+            {
+                return _finalAmountCommand;
+            }
+        }
+
         public double SupplementaryInterestRate
         {
             get { return _supplementaryInterestRate; }

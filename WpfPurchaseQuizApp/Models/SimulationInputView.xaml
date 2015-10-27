@@ -40,7 +40,7 @@
                     <TextBox Text="{Binding SimulationInputViewModel.CityOfTax}" HorizontalAlignment="Stretch" />
                 </GroupBox>
                 <Button x:Name="BtSimulate" Content="Rechne" Height="25" Width="74" HorizontalAlignment="Right"
-                        Command="{Binding Path=SimulateCommand}" />
+                        Command="{Binding SimulationInputViewModel.SimulateCommand}" CommandParameter="{Binding SimulationInputViewModel}"/>
             </StackPanel>
         </GroupBox>
     </Grid>

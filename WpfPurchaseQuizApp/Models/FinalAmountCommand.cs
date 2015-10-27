@@ -18,8 +18,9 @@ namespace WpfPurchaseQuizApp.Models
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("Final amount is 150000");
-            var result = 150000M;
+            var input = parameter as SimulationInputViewModel;
+
+            MessageBox.Show($"Number of years to simulate: {input.NbrYearsToSimulate}");
         }
 
         public event EventHandler CanExecuteChanged;

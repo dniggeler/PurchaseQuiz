@@ -35,44 +35,44 @@
                 <!--Sliders-->
                 <StackPanel Width="Auto" HorizontalAlignment="Stretch" Orientation="Horizontal">
                     <DockPanel Width="50">
-                        <Label DockPanel.Dock="Bottom">
+                        <Label DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider1, Path=Value, StringFormat={}{0:N0}}" />
                         </Label>
                         <Slider Value="{Binding Path=Year1Purchase}" Orientation="Vertical" Margin="5"
                                 Name="PurchaseSlider1" Maximum="{Binding PurchaseMax}" Minimum="0"
-                                VerticalAlignment="Stretch" SmallChange="1" />
+                                VerticalAlignment="Stretch" HorizontalAlignment="Center" SmallChange="1" />
                     </DockPanel>
                     <DockPanel Width="50">
-                        <Label DockPanel.Dock="Bottom">
+                        <Label DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider2, Path=Value, StringFormat={}{0:N0}}" />
                         </Label>
                         <Slider Value="{Binding Path=Year2Purchase}" Orientation="Vertical" Margin="5"
                                 Name="PurchaseSlider2" Maximum="{Binding PurchaseMax}" Minimum="0"
-                                VerticalAlignment="Stretch" SmallChange="1" />
+                                VerticalAlignment="Stretch" HorizontalAlignment="Center" SmallChange="1" />
                     </DockPanel>
                     <DockPanel Width="50">
-                        <Label DockPanel.Dock="Bottom">
+                        <Label DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider3, Path=Value, StringFormat={}{0:N0}}" />
                         </Label>
                         <Slider Value="{Binding Path=Year3Purchase}" Orientation="Vertical" Margin="5"
                                 Name="PurchaseSlider3" Maximum="{Binding PurchaseMax}" Minimum="0"
-                                VerticalAlignment="Stretch" />
+                                VerticalAlignment="Stretch" HorizontalAlignment="Center" />
                     </DockPanel>
                     <DockPanel Width="50">
-                        <Label DockPanel.Dock="Bottom">
+                        <Label DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider4, Path=Value, StringFormat={}{0:N0}}" />
                         </Label>
                         <Slider Value="{Binding Path=Year4Purchase}" Orientation="Vertical" Margin="5"
                                 Name="PurchaseSlider4" Maximum="{Binding PurchaseMax}" Minimum="0"
-                                VerticalAlignment="Stretch" />
+                                VerticalAlignment="Stretch" HorizontalAlignment="Center" />
                     </DockPanel>
                     <DockPanel Width="50">
-                        <Label DockPanel.Dock="Bottom">
+                        <Label DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding ElementName=PurchaseSlider5, Path=Value, StringFormat={}{0:N0}}" />
                         </Label>
                         <Slider Value="{Binding Path=Year5Purchase}" Orientation="Vertical" Margin="5"
                                 Name="PurchaseSlider5" Maximum="{Binding PurchaseMax}" Minimum="0"
-                                VerticalAlignment="Stretch" />
+                                VerticalAlignment="Stretch"  HorizontalAlignment="Center" />
                     </DockPanel>
                 </StackPanel>
             </DockPanel>
